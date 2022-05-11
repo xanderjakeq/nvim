@@ -66,6 +66,13 @@ return packer.startup(function(use)
     run = ':TSUpdate'
   }
 
+  --formatting
+  use {
+    --'jose-elias-alvarez/null-ls.nvim'
+    'sbdchd/neoformat',
+    {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
+  }
+
   -- Plugins can have dependencies on other plugins
   use {
     'haorenW1025/completion-nvim',
