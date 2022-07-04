@@ -31,13 +31,15 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd!]]
-    -- use neoformat for tsserver
-    if client.name == 'tsserver' then
-      vim.api.nvim_command [[autocmd BufWritePre * :Neoformat prettier]]
-    end
+    -- use neoformat for tsserver and svelteserver
+    if client.name == 'tsserver' or client.name == 'svelte'  then
+      vim.api.nvim_command [[autocmd BufWritePre *.ts,*.js :Neoformat prettier]]
+      --vim.api.nvim_command [[autocmd BufWritePre * :Prettier]]
+    else
     -- use default formatter for everything else
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
+    end
   end
 end
 
@@ -61,7 +63,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'svelte' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -109,7 +111,9 @@ cmp.setup {
   }),
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'luasnip' },
+    { name = 'buffer', keyword_length = 5 },
   },
 }
 --
@@ -122,3 +126,17 @@ cmp.setup {
 --  infor_sign = '',
 --  border_style = "round",
 --}
+
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+    max_lines = 1000;
+    max_num_results = 20;
+    sort = true;
+    run_on_every_keystroke = true;
+    snippet_placeholder = '..';
+    ignored_file_types = { -- default is not to ignore
+        -- uncomment to ignore in lua:
+        -- lua = true
+    };
+    show_prediction_strength = false;
+})
