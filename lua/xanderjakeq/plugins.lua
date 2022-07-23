@@ -42,12 +42,12 @@ packer.init {
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
-  -- Simple plugins can be specified as strings
-  --use '9mm/vim-closer'
-
   -- Lazy loading:
   -- Load on specific commands
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+
+  --config editor based on .editorconfig within project root
+  use 'editorconfig/editorconfig-vim'
 
   -- lsp
   use {
@@ -75,17 +75,26 @@ return packer.startup(function(use)
   }
 
   -- Plugins can have dependencies on other plugins
-  use {
-    'haorenW1025/completion-nvim',
-    opt = true,
-    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  }
+  --use {
+  --  'haorenW1025/completion-nvim',
+  --  opt = true,
+  --  requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
+  --}
 
   -- Plugins can also depend on rocks from luarocks.org:
   --use {
   --  'my/supercoolplugin',
   --  rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
   --}
+
+  use {
+    'phaazon/hop.nvim',
+     branch = 'v2', -- optional but strongly recommended
+     config = function()
+       -- you can configure Hop the way you like here; see :h hop-config
+       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+     end
+   }
 
   -- You can specify rocks in isolation
   use_rocks 'penlight'
@@ -98,7 +107,7 @@ return packer.startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
   -- Post-install/update hook with call of vimscript function with argument
-  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
+  --use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
   -- Use specific branch, dependency and run lua file after load
   --use {
@@ -147,7 +156,7 @@ return packer.startup(function(use)
 
   use {
     {'vim-airline/vim-airline', as = 'airline'},
-    'vim-syntastic/syntastic',
+    --'vim-syntastic/syntastic',
     'vim-airline/vim-airline-themes',
     'bling/vim-bufferline',
   }

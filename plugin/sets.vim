@@ -50,6 +50,7 @@ set nocompatible
 "filetype off
 filetype plugin indent on
 set sidescroll=1
+set statusline+=%F
 
 " set dir/ for swap files
 set dir^=$HOME/.vim/tmp//

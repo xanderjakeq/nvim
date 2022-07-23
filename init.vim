@@ -1,4 +1,4 @@
-""revert to .vimrc
+"gg"revert to .vimrc
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "let &packpath = &runtimepath
 "source ~/.vimrc
@@ -63,6 +63,10 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 nnoremap <leader>eo :Ex<CR>
 nnoremap <leader>er :Rex<CR>
+
+"buffer nav
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
 
 "move lines up/down in visual mode
 vnoremap J :m '>+1<CR>gv=gv

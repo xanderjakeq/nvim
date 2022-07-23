@@ -43,19 +43,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
---local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
---for _, lsp in pairs(servers) do
---  require('lspconfig')[lsp].setup {
---    on_attach = on_attach,
---    flags = {
---      -- This will be the default in neovim 0.7+
---      debounce_text_changes = 150,
---    }
---  }
---end
-
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -68,6 +55,10 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    flags = {
+      -- This will be the default in neovim 0.7+
+      debounce_text_changes = 150,
+    }
   }
 end
 
@@ -114,18 +105,9 @@ cmp.setup {
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 5 },
+    { name = 'cmp_tabnine' }, -- add tabnine
   },
 }
---
---local saga = require 'lspsaga'
---
---saga.init_lsp_saga {
---  error_sign = '',
---  warn_sign = '',
---  hint_sign = '',
---  infor_sign = '',
---  border_style = "round",
---}
 
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
