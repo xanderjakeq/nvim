@@ -68,6 +68,10 @@ nnoremap <leader>er :Rex<CR>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>p :bp<CR>
 
+"tabs
+nnoremap <leader>nt :tabnew<CR>
+nnoremap <leader>lt :tabs<CR>
+
 "move lines up/down in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
