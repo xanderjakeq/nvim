@@ -3,9 +3,11 @@ vim.api.nvim_set_keymap("n", "<leader><leader>b", "<cmd>HopWordBC<CR>", {noremap
 vim.api.nvim_set_keymap("n", "<leader><leader>w", "<cmd>HopWordAC<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader><leader>j", "<cmd>HopLineAC<CR>", {noremap=true})
 vim.api.nvim_set_keymap("n", "<leader><leader>k", "<cmd>HopLineBC<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>s", "<cmd>HopPattern<CR>", {noremap=true})
 
 -- visual mode (easymotion-like)
 vim.api.nvim_set_keymap("v", "<leader><leader>w", "<cmd>HopWordAC<CR>", {noremap=true})
 vim.api.nvim_set_keymap("v", "<leader><leader>b", "<cmd>HopWordBC<CR>", {noremap=true})
 vim.api.nvim_set_keymap("v", "<leader><leader>j", "<cmd>HopLineAC<CR>", {noremap=true})
 vim.api.nvim_set_keymap("v", "<leader><leader>k", "<cmd>HopLineBC<CR>", {noremap=true})
+vim.api.nvim_set_keymap("v", "<leader>s", "<cmd>HopPattern<CR>", {noremap=true})
