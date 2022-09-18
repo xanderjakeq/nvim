@@ -62,6 +62,11 @@ return packer.startup(function(use)
     'L3MON4D3/LuaSnip', -- Snippets plugin
     {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   }
+
+  use {
+    'onsails/lspkind.nvim'
+  }
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
