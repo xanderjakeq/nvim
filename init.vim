@@ -46,17 +46,23 @@ let &t_te.="\e[0 q"
 nnoremap <leader>lg :FloatermNew lazygit<CR>
 
 
-let $SKIM_DEFAULT_COMMAND = "rg --hidden -l '' -g '!.git' -g '!.trunk' "
-command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
-command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
+"let $SKIM_DEFAULT_COMMAND = "rg --hidden -l '' -g '!.git' -g '!.trunk' "
+"command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
+"command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 
 "command! -bang PFiles call fzf#vim#gitfiles('./', <bang>0)
 
 " fzf or skim
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>g :GFiles<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>rg :Rg<CR>
+"nnoremap <leader>f :Files<CR>
+"nnoremap <leader>g :GFiles<CR>
+"nnoremap <leader>b :Buffers<CR>
+"nnoremap <leader>rg :Rg<CR>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>rg <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope help_tags<cr>
 
 "netrw settings
 let g:netrw_banner = 0

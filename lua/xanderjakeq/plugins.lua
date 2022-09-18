@@ -136,12 +136,18 @@ return packer.startup(function(use)
     'junegunn/limelight.vim'
   }
 
+  --use {
+  --  'lotabout/skim', run = '~/.skim/install',
+  --  'lotabout/skim.vim',
+  --  'voldikss/vim-floaterm',
+  --  'airblade/vim-rooter'
+  --}
+
   use {
-    'lotabout/skim', run = '~/.skim/install',
-    'lotabout/skim.vim',
-    'voldikss/vim-floaterm',
-    'airblade/vim-rooter'
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
+
 
   use {
     'ThePrimeagen/vim-be-good'
