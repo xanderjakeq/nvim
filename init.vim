@@ -12,7 +12,11 @@ nnoremap gf :vertical wincmd f<CR>
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-set shell=/bin/bash
+if has('win32') || has('win64')
+    "set shell=\"/c/Program\ Files/Git/bin/bash.exe\"
+else
+    set shell=/bin/bash
+endif
 
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
@@ -25,6 +29,9 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
+
+" single statusline
+set laststatus=3
 
 " Add Plugins
 lua require('xanderjakeq')
