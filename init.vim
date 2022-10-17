@@ -78,8 +78,8 @@ nnoremap <leader>eo :Ex<CR>
 nnoremap <leader>er :Rex<CR>
 
 "buffer nav
-nnoremap <leader>n :bn<CR>
-nnoremap <leader>p :bp<CR>
+nnoremap <leader><leader>n :bn<CR>
+nnoremap <leader><leader>p :bp<CR>
 
 "tabs
 nnoremap <leader>nt :tabnew<CR>
