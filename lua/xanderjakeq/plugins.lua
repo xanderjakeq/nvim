@@ -92,14 +92,14 @@ return packer.startup(function(use)
   --  rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
   --}
 
-  use {
-    'phaazon/hop.nvim',
-     branch = 'v2', -- optional but strongly recommended
-     config = function()
-       -- you can configure Hop the way you like here; see :h hop-config
-       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-     end
-   }
+  --use {
+  --  'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  --   config = function()
+  --     -- you can configure Hop the way you like here; see :h hop-config
+  --     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  --   end
+  -- }
 
   -- You can specify rocks in isolation
   use_rocks 'penlight'
@@ -123,7 +123,8 @@ return packer.startup(function(use)
   -- You can alias plugin names
   use {
       {'dracula/vim', as = 'dracula'},
-      {'morhetz/gruvbox', as = 'gruvbox'}
+      {'morhetz/gruvbox', as = 'gruvbox'},
+      {'rebelot/kanagawa.nvim', as = 'kanagawa'}
   }
 
   use {

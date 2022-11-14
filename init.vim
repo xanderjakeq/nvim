@@ -32,13 +32,14 @@ set wildignore+=**/.git/*
 
 " single statusline
 set laststatus=3
+set title
 
 " Add Plugins
 lua require('xanderjakeq')
 
 "Apply theme
 syntax on
-colorscheme gruvbox
+colorscheme kanagawa
 
 "transparent background
 highlight Normal guibg=none
@@ -89,7 +90,7 @@ nnoremap <leader>lt :tabs<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
 
-nnoremap <silent>K :Lspsaga hover_doc<CR>
+"nnoremap <silent>K :Lspsaga hover_doc<CR>
 
 augroup xanderjakeq
     autocmd!

@@ -8,7 +8,7 @@ set expandtab "deletes 4 spaces from tabs
 set guicursor=
 set relativenumber "shows relative numbers to current line
 set number "show line numbers
-set laststatus=2 "for airline
+"set laststatus=2 "for airline
 set t_Co=256
 set hidden
 set noerrorbells
