@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\xande\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\airline",
     url = "https://github.com/vim-airline/vim-airline"
   },
+  bogster = {
+    loaded = true,
+    path = "C:\\Users\\xande\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\bogster",
+    url = "https://github.com/eddyekofo94/bogster.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\xande\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",

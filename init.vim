@@ -39,7 +39,7 @@ lua require('xanderjakeq')
 
 "Apply theme
 syntax on
-colorscheme kanagawa
+colorscheme bogster
 
 "transparent background
 highlight Normal guibg=none
