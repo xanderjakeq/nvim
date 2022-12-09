@@ -62,8 +62,8 @@ return packer.startup(function(use)
     'L3MON4D3/LuaSnip', -- Snippets plugin
   }
 
-
-  use {'tzachar/cmp-tabnine', run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  -- use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
   use {
     'onsails/lspkind.nvim'
@@ -127,7 +127,8 @@ return packer.startup(function(use)
       {'dracula/vim', as = 'dracula'},
       {'morhetz/gruvbox', as = 'gruvbox'},
       {'rebelot/kanagawa.nvim', as = 'kanagawa'},
-      {'eddyekofo94/bogster.nvim', as = 'bogster'}
+      {'eddyekofo94/bogster.nvim', as = 'bogster'},
+      {'savq/melange', as = 'melange'}
   }
 
   use {

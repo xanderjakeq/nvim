@@ -39,7 +39,7 @@ lua require('xanderjakeq')
 
 "Apply theme
 syntax on
-colorscheme bogster
+colorscheme melange
 
 "transparent background
 highlight Normal guibg=none
