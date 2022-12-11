@@ -76,6 +76,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+-- need to install xclip for X11 or wl-copy and wl-paste for Wayland
 vim.opt.clipboard = "unnamedplus"
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
