@@ -75,23 +75,10 @@ return packer.startup(function(use)
   }
 
   --formatting
-  use {
-    --'jose-elias-alvarez/null-ls.nvim'
-    'sbdchd/neoformat',
-    {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
-  }
-
-  -- Plugins can have dependencies on other plugins
+  -- TODO: do i need this
   --use {
-  --  'haorenW1025/completion-nvim',
-  --  opt = true,
-  --  requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  --}
-
-  -- Plugins can also depend on rocks from luarocks.org:
-  --use {
-  --  'my/supercoolplugin',
-  --  rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
+  --  'sbdchd/neoformat',
+  --  {'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production'}
   --}
 
   --use {
@@ -118,9 +105,6 @@ return packer.startup(function(use)
     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
     config = function() require('gitsigns').setup() end
   }
-
-  -- You can specify multiple plugins in a single call
-  -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
 
   -- You can alias plugin names
   use {
@@ -157,7 +141,6 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-
   use {
     'ThePrimeagen/vim-be-good'
   }
@@ -170,8 +153,7 @@ return packer.startup(function(use)
   }
 
   use {
-    {'vim-airline/vim-airline', as = 'airline'},
-    --'vim-syntastic/syntastic',
+    {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }},
     'vim-airline/vim-airline-themes',
     'bling/vim-bufferline',
   }

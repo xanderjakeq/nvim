@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  airline = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/airline",
+    url = "https://github.com/vim-airline/vim-airline"
+  },
   bogster = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/bogster",
@@ -160,11 +165,6 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
   ["markdown-preview.nvim"] = {
     commands = { "MarkdownPreview" },
     loaded = false,
@@ -177,6 +177,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/melange",
     url = "https://github.com/savq/melange"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -192,12 +197,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -252,6 +251,11 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
     url = "https://github.com/maxmellon/vim-jsx-pretty"
   },
+  ["vim-prettier"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-prettier",
+    url = "https://github.com/prettier/vim-prettier"
+  },
   ["vim-svelte"] = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-svelte",
@@ -272,20 +276,6 @@ time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Dispatch ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Make', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Make', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Make' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Make ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
           require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -306,6 +296,20 @@ pcall(vim.api.nvim_create_user_command, 'MarkdownPreview', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'markdown-preview.nvim'}, { cmd = 'MarkdownPreview' }, _G.packer_plugins)
           return vim.fn.getcompletion('MarkdownPreview ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch' }, _G.packer_plugins)
+          return vim.fn.getcompletion('Dispatch ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Make', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Make', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Make' }, _G.packer_plugins)
+          return vim.fn.getcompletion('Make ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 

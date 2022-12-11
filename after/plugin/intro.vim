@@ -23,7 +23,7 @@ function! Start()
 
     " Now we can just write to the buffer, whatever you want.
     call append('$', "")
-   " Vim ASCII logo by Erling Westenvik (https://www.vim.org/images/vim.txt)
+
     let sasuke = [
                  \ '⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
                  \ '⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣭⣑⠒⠦⠤⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
