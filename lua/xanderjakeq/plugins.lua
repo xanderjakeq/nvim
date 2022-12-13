@@ -75,6 +75,7 @@ return packer.startup(function(use)
   }
 
   --formatting
+  use { 'mhartington/formatter.nvim' }
   -- TODO: do i need this
   --use {
   --  'sbdchd/neoformat',

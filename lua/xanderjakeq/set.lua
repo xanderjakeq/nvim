@@ -28,6 +28,14 @@ vim.opt.wildignore = {
 -- single statusline
 vim.opt.laststatus = 3
 vim.opt.title = true
+vim.opt.titlestring = vim.fn.fnamemodify(vim.loop.cwd(), ":t") .. [[ /%f]]
+
+--vim.opt.titlestring = [[%f %h%m%r%w %{v:progname}]]
+--vim.opt.titlestring = [[%{expand("%:p:h:t")}]]
+--vim.opt.titlestring = vim.fn.expand("%:p:h:t")
+--vim.opt.titlestring = vim.fn.fnamemodify(vim.loop.cwd(), ":t") .. [[ %{v:progname}]]
+--vim.opt.titlestring = [[%{getcwd()}%:t]]
+-- %{expand(\"%:p:h\")}
 
 -- Apply theme
 vim.opt.syntax = "on"
