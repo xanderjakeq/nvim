@@ -2,11 +2,10 @@ require('formatter').setup {
     logging = false,
     filetype = {
         typescript = {
-            --require('formatter.filetypes.typescript').prettier
             function()
                 return {
-                    exe = "dprint",
-                    args = {"fmt", "--stdin", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
+                    exe = "rome",
+                    args = {"format", "--stdin-file-path", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
                     stdin = true
                 }
             end
