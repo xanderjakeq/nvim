@@ -2,6 +2,14 @@ require('formatter').setup {
     logging = false,
     filetype = {
         typescript = {
+            --require('formatter.filetypes.typescript').prettier
+            --function()
+            --    return {
+            --        exe = "dprint",
+            --        args = {"fmt", "--stdin", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))},
+            --        stdin = true
+            --    }
+            --end
             function()
                 return {
                     exe = "rome",
@@ -17,7 +25,7 @@ require('formatter').setup {
             require('formatter.filetypes.svelte').prettier
         },
         rust = {
-            require('formatter.filetypes.rust')
+            require('formatter.filetypes.rust').rustfmt
         },
         javascript = {
             require('formatter.filetypes.javascript').prettierd

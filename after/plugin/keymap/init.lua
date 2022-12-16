@@ -8,6 +8,8 @@ nnoremap("<leader>lg", ":FloatermNew lazygit<CR>")
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
+vim.keymap.set("x", "<leader>p", "\"_dP")
+
 nnoremap("<leader>eo", ":Ex<cr>")
 nnoremap("<leader>er", ":Rex<cr>")
 

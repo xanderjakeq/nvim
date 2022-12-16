@@ -8,27 +8,27 @@ end)
 nnoremap("<C-p>", function()
     require('telescope.builtin').git_files()
 end)
-nnoremap("<leader>f", function()
+nnoremap("<leader>ff", function()
     require('telescope.builtin').find_files()
 end)
 
-nnoremap("<leader>rg", function()
+nnoremap("<leader>fg", function()
     require('telescope.builtin').live_grep()
 end)
 
-nnoremap("<leader>b", function()
+nnoremap("<leader>fb", function()
     require('telescope.builtin').buffers()
 end)
 
-nnoremap("<leader>h", function()
+nnoremap("<leader>ft", function()
     require('telescope.builtin').help_tags()
 end)
 
-nnoremap("<leader>w", function()
+nnoremap("<leader>fw", function()
     require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }
 end)
 
-nnoremap("<leader>hf", function()
+nnoremap("<leader>fh", function()
     require('telescope.builtin').find_files({ hidden = true })
 end)
 
