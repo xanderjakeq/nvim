@@ -87,7 +87,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set( 'n', '<space>rn', function() vim.lsp.buf.rename() end, _opts)
   vim.keymap.set( 'n', '<space>ca', function() vim.lsp.buf.code_action() end, _opts)
   vim.keymap.set( 'n', 'gr', function() vim.lsp.buf.references() end, _opts)
-  vim.keymap.set( 'n', '<leader>fmt', function() vim.lsp.buf.format({async = true}) end, _opts)
+  vim.keymap.set( 'n', '<leader><leader>p', function() vim.lsp.buf.format({async = true}) end, _opts)
 end
 
 lsp.on_attach(on_attach)
