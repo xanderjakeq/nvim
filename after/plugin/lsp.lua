@@ -3,7 +3,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'sumneko_lua',
+  --'sumneko_lua',
   'rust_analyzer',
   'pyright',
   'svelte',
@@ -58,7 +58,7 @@ lsp.setup_nvim_cmp({
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', 'E', function() vim.diagnostic.open_float() end, opts)
+vim.keymap.set('n', 'ge', function() vim.diagnostic.open_float() end, opts)
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
 vim.keymap.set('n', '<space>q', function() vim.diagnostic.setloclist() end, opts)
