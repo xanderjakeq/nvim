@@ -22,9 +22,9 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 local cmp_sources = {
-    --{ name = 'cmp_tabnine' }, -- add tabnine
     {name = 'path'},
     {name = 'nvim_lsp', keyword_length = 3},
+    {name = 'cmp_tabnine' }, -- add tabnine
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
 }
