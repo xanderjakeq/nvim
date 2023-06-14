@@ -32,7 +32,7 @@ vim.opt.titlestring = vim.fn.fnamemodify(vim.loop.cwd(), ":t") .. [[ /%f]]
 
 -- Apply theme
 vim.opt.syntax = "on"
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme gruvbox")
 
 -- transparent background
 -- highlight Normal guibg=none
