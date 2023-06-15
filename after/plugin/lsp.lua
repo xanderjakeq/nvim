@@ -1,4 +1,6 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
+
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -8,6 +10,8 @@ lsp.ensure_installed({
   'pyright',
   'svelte',
 })
+
+lspconfig.gdscript.setup{}
 
 -- nvim-cmp setup
 local cmp = require('cmp')
