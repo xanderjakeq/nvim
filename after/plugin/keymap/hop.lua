@@ -1,5 +1,6 @@
 local Remap = require("xanderjakeq.keymap")
 local nnoremap = Remap.nnoremap
+local vnoremap = Remap.vnoremap
 
 local hop = require('hop')
 
@@ -22,3 +23,8 @@ nnoremap("<C-h>w", ":HopWord<cr>")
 nnoremap("<C-h>c", ":HopChar1<cr>")
 nnoremap("<C-h>l", ":HopLine<cr>")
 nnoremap("<C-h>/", ":HopPattern<cr>")
+
+vnoremap("<C-h>w", "<cmd>HopWord<cr>")
+vnoremap("<C-h>c", "<cmd>HopChar1<cr>")
+vnoremap("<C-h>l", "<cmd>HopLine<cr>")
+vnoremap("<C-h>/", "<cmd>HopPattern<cr>")
