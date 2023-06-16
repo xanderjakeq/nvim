@@ -140,6 +140,7 @@ return packer.startup(function(use)
   }
 
   use {
+    'nvim-tree/nvim-web-devicons',
     {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }},
     'vim-airline/vim-airline-themes',
     'bling/vim-bufferline',
@@ -156,6 +157,10 @@ return packer.startup(function(use)
       -- you can configure Hop the way you like here; see :h hop-config
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
     end
+  }
+  use {
+    'stevearc/oil.nvim',
+    config = function() require('oil').setup() end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -10,6 +10,8 @@ vim.g.netrw_liststyle = 3
 
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
+nnoremap("<C-o>", ":Oil<cr>")
+
 nnoremap("<leader>eo", ":Ex<cr>")
 nnoremap("<leader>er", ":Rex<cr>")
 
