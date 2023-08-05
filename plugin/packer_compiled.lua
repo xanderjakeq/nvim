@@ -89,15 +89,15 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
-  ["cmp-cmdline"] = {
-    loaded = true,
-    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
+    url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
   ["cmp-path"] = {
     loaded = true,
@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
@@ -155,6 +160,12 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["hop.nvim"] = {
+    config = { "\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0" },
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   kanagawa = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/kanagawa",
@@ -164,6 +175,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/limelight.vim",
     url = "https://github.com/junegunn/limelight.vim"
+  },
+  ["lsp-zero.nvim"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -182,6 +198,16 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
   },
   melange = {
     loaded = true,
@@ -204,10 +230,15 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  ["oil.nvim"] = {
+    config = { "\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0" },
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -239,18 +270,15 @@ _G.packer_plugins = {
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-bufferline",
     url = "https://github.com/bling/vim-bufferline"
   },
-  ["vim-dispatch"] = {
-    commands = { "Dispatch", "Make", "Focus", "Start" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/opt/vim-dispatch",
-    url = "https://github.com/tpope/vim-dispatch"
-  },
   ["vim-floaterm"] = {
     loaded = true,
     path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-floaterm",
     url = "https://github.com/voldikss/vim-floaterm"
+  },
+  ["vim-godot"] = {
+    loaded = true,
+    path = "/home/xanderjakeq/.local/share/nvim/site/pack/packer/start/vim-godot",
+    url = "https://github.com/habamax/vim-godot"
   },
   ["vim-js"] = {
     loaded = true,
@@ -275,47 +303,27 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: oil.nvim
+time([[Config for oil.nvim]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\boil\frequire\0", "config", "oil.nvim")
+time([[Config for oil.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: hop.nvim
+time([[Config for hop.nvim]], true)
+try_loadstring("\27LJ\2\nU\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\tkeys\28etovxqpdygfblzhckisuran\nsetup\bhop\frequire\0", "config", "hop.nvim")
+time([[Config for hop.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Focus ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Start' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Start ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'MarkdownPreview', function(cmdargs)
           require('packer.load')({'markdown-preview.nvim'}, { cmd = 'MarkdownPreview', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'markdown-preview.nvim'}, { cmd = 'MarkdownPreview' }, _G.packer_plugins)
+          require('packer.load')({'markdown-preview.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('MarkdownPreview ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Dispatch', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Dispatch' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Dispatch ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'Make', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Make', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Make' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Make ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
