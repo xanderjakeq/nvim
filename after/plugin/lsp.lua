@@ -1,20 +1,24 @@
 local lsp = require("lsp-zero")
-local lspconfig = require("lspconfig")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
+-- Mason
+mason.setup()
+mason_lspconfig.setup {
     'tsserver',
     --'sumneko_lua',
     'rust_analyzer',
     'pyright',
     'svelte',
-})
+}
 
-lspconfig.gdscript.setup {}
-lspconfig.deno.setup {}
-lspconfig.tsserver.setup {}
+mason_lspconfig.setup_handlers {
+    function(server_name)      -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+    end,
+}
 
+lsp.preset("recommended")
 
 -- nvim-cmp setup
 local cmp = require('cmp')
@@ -23,6 +27,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
 })
 
 cmp_mappings['<Tab>'] = nil
@@ -44,9 +49,12 @@ local source_mapping = {
     path = "[Path]",
 }
 
-lsp.setup_nvim_cmp({
+cmp.setup({
     mapping = cmp_mappings,
     sources = cmp_sources,
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
     formatting = {
         format = function(entry, vim_item)
             local menu = source_mapping[entry.source.name]
