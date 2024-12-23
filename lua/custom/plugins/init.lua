@@ -18,6 +18,12 @@ return {
     'voldikss/vim-floaterm',
   },
   {
+    'altermo/telescope-nucleo-sorter.nvim',
+    build = 'cargo build --release',
+    -- on macos, you may need below to make build work
+    -- build = 'cargo rustc --release -- -C link-arg=-undefined -C link-arg=dynamic_lookup',
+  },
+  {
     'folke/flash.nvim',
     event = 'VeryLazy',
     ---@type Flash.Config

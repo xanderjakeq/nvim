@@ -2,7 +2,7 @@ require 'keymap.harpoon'
 local Remap = require 'keymap.keymap'
 local nnoremap = Remap.nnoremap
 
-nnoremap('<leader>lg', ':FloatermNew gitui<CR>')
+nnoremap('<leader>lg', ':FloatermNew lazygit<CR>')
 
 -- netrw settings
 vim.g.netrw_banner = 0
