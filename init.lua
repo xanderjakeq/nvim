@@ -408,6 +408,10 @@ require('lazy').setup({
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          local imap = function(keys, func, desc)
+            vim.keymap.set('i', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          end
+
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
@@ -452,6 +456,10 @@ require('lazy').setup({
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          -- have the same keymap in normal and insert mode
+          map('<C-s>', vim.lsp.buf.signature_help, '[S]ignature')
+          imap('<C-s>', vim.lsp.buf.signature_help, '[S]ignature')
 
           -- The following autocommand is used to enable inlay hints in your
           -- code, if the language server you are using supports them
