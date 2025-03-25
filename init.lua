@@ -505,6 +505,12 @@ require('lazy').setup({
         ts_ls = {},
         --
         ols = {},
+        tailwindcss = {
+          filetypes = {
+            'html',
+            'rust',
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
@@ -581,6 +587,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
+        -- html = { 'jinja-lsp' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -719,13 +726,14 @@ require('lazy').setup({
     --   -- You can configure highlights by doing something like:
     --   vim.cmd.hi 'Comment gui=none'
     -- end,
-    'morhetz/gruvbox',
+    -- 'morhetz/gruvbox',
+    'nyoom-engineering/oxocarbon.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'gruvbox'
+      vim.cmd.colorscheme 'oxocarbon'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
