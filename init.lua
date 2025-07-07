@@ -36,6 +36,9 @@ vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.guicursor = 'a:blinkon0'
 
+-- border for hover floating buffer
+vim.o.winborder = 'rounded'
+
 vim.wo.sidescrolloff = 5
 
 vim.opt.number = true
