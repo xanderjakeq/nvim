@@ -22,7 +22,7 @@ return {
     event = 'VeryLazy',
     ---@type Flash.Config
     opts = {
-      keys = 'tnseriaoplfuwyqvmcx',
+      keys = 'tnseriaoplfuwqvmcx',
       modes = {
         char = {
           jump_labels = true,

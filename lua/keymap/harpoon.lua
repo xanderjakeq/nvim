@@ -1,7 +1,16 @@
 local harpoon = require 'harpoon'
+local harpoon_extensions = require 'harpoon.extensions'
+
+settings = {
+  save_on_toggle = true,
+  sync_on_ui_close = false,
+  key = function()
+    return vim.loop.cwd()
+  end,
+}
 
 -- REQUIRED
-harpoon:setup()
+harpoon:setup { settings }
 -- REQUIRED
 
 vim.keymap.set('n', '<leader>a', function()
@@ -31,3 +40,5 @@ end)
 vim.keymap.set('n', '<C-S-N>', function()
   harpoon:list():next()
 end)
+
+harpoon:extend(harpoon_extensions.builtins.highlight_current_file())

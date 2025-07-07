@@ -4,7 +4,7 @@ local nnoremap = Remap.nnoremap
 
 -- nnoremap('<leader>lg', ':FloatermNew lazygit<CR>')
 -- nnoremap('<leader>lg', ':FloatermNew gitui<CR>')
-nnoremap('<leader>lg', ':FloatermNew<CR>')
+nnoremap('<leader>lg', ':FloatermNew nu<CR>')
 
 -- netrw settings
 vim.g.netrw_banner = 0

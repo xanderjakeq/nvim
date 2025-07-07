@@ -14,6 +14,11 @@ vim.wo.wrap = false
 --Prevent unsafe commands
 vim.opt.secure = true
 
+--Fold
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = false
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
 -- set smartindent
 vim.opt.smartindent = true
 vim.opt.tabstop = 4
@@ -359,7 +364,7 @@ require('lazy').setup({
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
+      'netmute/ctags-lsp.nvim',
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
@@ -495,7 +500,13 @@ require('lazy').setup({
         clangd = {},
         gopls = {},
         -- pyright = {},
-        rust_analyzer = {},
+
+        rust_analyzer = {
+          checkOnSave = {
+            enable = false,
+          },
+        },
+
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -637,6 +648,7 @@ require('lazy').setup({
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
+      local types = require 'cmp.types'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
@@ -646,8 +658,8 @@ require('lazy').setup({
             luasnip.lsp_expand(args.body)
           end,
         },
-        -- completion = { autocomplete = cmp.types.cmp.TriggerEvent.InsertEnter, completeopt = 'menu,menuone,noinsert' },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        -- completion = { autocomplete = { types.cmp.TriggerEvent.TextChanged }, completeopt = 'menu,menuone,noinsert' },
+        completion = { autocomplete = false, completeopt = 'menu,menuone,noinsert' },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -666,11 +678,11 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          -- ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<C-y>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+          -- ['<CR>'] = cmp.mapping.confirm { select = true },
           --['<Tab>'] = cmp.mapping.select_next_item(),
           --['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
@@ -727,13 +739,15 @@ require('lazy').setup({
     --   vim.cmd.hi 'Comment gui=none'
     -- end,
     -- 'morhetz/gruvbox',
-    'nyoom-engineering/oxocarbon.nvim',
+    -- 'nyoom-engineering/oxocarbon.nvim',
+    -- 'catppuccin/nvim',
+    'https://gitlab.com/yorickpeterse/vim-paper.git',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'oxocarbon'
+      vim.cmd.colorscheme 'paper'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'

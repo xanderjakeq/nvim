@@ -1,4 +1,18 @@
 local lspconfig = require 'lspconfig'
+local lsp_configs = require 'lspconfig.configs'
+
+lsp_configs.pyrefly = {
+  default_config = {
+    cmd = { 'uv', 'run', 'pyrefly', 'lsp' },
+    filetypes = { 'python' },
+    root_dir = function(fname)
+      return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
+    end,
+    settings = {},
+  },
+}
+
+lspconfig.pyrefly.setup {}
 
 -- ...
 lspconfig.htmx.setup {
