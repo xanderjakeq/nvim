@@ -37,12 +37,13 @@ vim.opt.undofile = true
 vim.opt.guicursor = 'a:blinkon0'
 
 -- border for hover floating buffer
-vim.o.winborder = 'rounded'
+-- vim.o.winborder = 'rounded'
 
 vim.wo.sidescrolloff = 5
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- line numbers
+-- vim.opt.number = true
+-- vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -504,11 +505,11 @@ require('lazy').setup({
         gopls = {},
         -- pyright = {},
 
-        rust_analyzer = {
-          checkOnSave = {
-            enable = false,
-          },
-        },
+        -- rust_analyzer = {
+        --   checkOnSave = {
+        --     enable = false,
+        --   },
+        -- },
 
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -561,6 +562,11 @@ require('lazy').setup({
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
+            -- TODO: write a better function to disable a list of names
+            if server_name == 'rust_analyzer' then
+              return
+            end
+
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
