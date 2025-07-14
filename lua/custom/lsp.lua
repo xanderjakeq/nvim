@@ -13,6 +13,11 @@ lsp_configs.pyrefly = {
 }
 
 lspconfig.pyrefly.setup {}
+-- lspconfig.ctags_lsp.setup {
+--   filetyes = {
+--     'rust',
+--   },
+-- }
 
 -- ...
 lspconfig.htmx.setup {
