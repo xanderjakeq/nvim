@@ -19,11 +19,6 @@ lspconfig.pyrefly.setup {}
 --   },
 -- }
 
--- ...
-lspconfig.htmx.setup {
-  filetyes = { 'html', 'templ', 'htmldjango' },
-}
-
 lspconfig.html.setup {
   filetyes = { 'html', 'templ', 'htmldjango' },
 }

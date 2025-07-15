@@ -234,7 +234,8 @@ require('lazy').setup({
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)
       -- this setting is independent of vim.o.timeoutlen
-      delay = 0,
+      delay = 500,
+      preset = 'helix',
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -418,6 +419,8 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
+      -- NOTE: weird conflict with rust_analyzer
+      -- 'netmute/ctags-lsp.nvim',
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -604,7 +607,9 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {},
+        -- rust_analyzer = {
+        --   enabled = false,
+        -- },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
