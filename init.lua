@@ -607,9 +607,9 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        -- rust_analyzer = {
-        --   enabled = false,
-        -- },
+        rust_analyzer = {
+          enabled = false,
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -850,10 +850,20 @@ require('lazy').setup({
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      -- - zaiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+      -- - zd'   - [S]urround [D]elete [']quotes
+      -- - zr)'  - [S]urround [R]eplace [)] [']
+      require('mini.surround').setup {
+        mappings = {
+          add = 'za', -- Add surrounding in Normal and Visual modes
+          delete = 'zd', -- Delete surrounding
+          find = 'zf', -- Find surrounding (to the right)
+          find_left = 'zF', -- Find surrounding (to the left)
+          highlight = 'zh', -- Highlight surrounding
+          replace = 'zr', -- Replace surrounding
+          update_n_lines = 'zn',
+        },
+      }
 
       require('mini.starter').setup {
         header = '⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣭⣑⠒⠦⠤⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⢀⣀⡸⠿⠿⣿⣿⣷⣦⣤⣄⣈⡉⠛⠲⢤⣀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠲⢾⣿⣿⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣦⠈⢷⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠿⣿⠋⢿⣇⡈⡇⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⢹⡟⠀⠀⠀⠀⠘⣿⣿⢹⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠈⠧⣀⠀⠀⡠⠂⠃⣿⡞⡄⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⢀⣾⣿⡟⢿⣿⣿⣿⡿⠘⠿⠃⠀⠀⠈⠙⠛⢿⣷⡃⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⢸⣿⢿⣧⠸⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢹⡇⠛⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣷⣿⣿⣿⡇⠀⠀nvim⠀⢀⣼⡇⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠘⠟⠁⢿⣿⣿⣧⠄⠀⡀⢀⡰⠖⠒⢿⣿⡇⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⢸⣁⡽⢿⣀⣐⠡⠂⠱⡄⠀⠀⠙⠇⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣮⣏⡅⠀⠀⢠⡇⠀⠀⠀⠟⠁⠀⠀⣰⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠏⠶⡄⠀⢀⣀⡟⣦⣀⢸⣀⣀⣠⣾⣯⠕⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣧⢲⠇⢸⡇⣚⣿⣿⣿⣯⣿⣿⣶⣶⡾⡀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⡶⠺⡃⠀⠱⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⢹⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣶⠭⠅⠀⠻⢻⢼⣿⣿⣿⣿⣿⣿⣿⣿⡘⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣏⣚⠁⠀⠀⣸⣼⣿⣿⠟⠉⠻⣿⣿⡿⡆⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⣯⢭⡇⠀⠀⢸⣻⣿⠁⠀⠀⠀⠈⢻⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n',
