@@ -29,6 +29,7 @@ vim.opt.guicursor = ''
 
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = '+1'
+vim.opt.formatoptions = 'cqj'
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -565,14 +566,20 @@ require('lazy').setup({
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = vim.g.have_nerd_font and {
-          text = {
-            [vim.diagnostic.severity.ERROR] = '󰅚 ',
-            [vim.diagnostic.severity.WARN] = '󰀪 ',
-            [vim.diagnostic.severity.INFO] = '󰋽 ',
-            [vim.diagnostic.severity.HINT] = '󰌶 ',
-          },
-        } or {},
+        signs = vim.g.have_nerd_font
+            and {
+              text = {
+                -- [vim.diagnostic.severity.ERROR] = '󰅚 ',
+                -- [vim.diagnostic.severity.WARN] = '󰀪 ',
+                -- [vim.diagnostic.severity.INFO] = '󰋽 ',
+                -- [vim.diagnostic.severity.HINT] = '󰌶 ',
+                [vim.diagnostic.severity.ERROR] = 'E ',
+                [vim.diagnostic.severity.WARN] = 'W',
+                [vim.diagnostic.severity.INFO] = 'I',
+                [vim.diagnostic.severity.HINT] = 'H ',
+              },
+            }
+          or {},
         -- virtual_text = {
         --   source = 'if_many',
         --   spacing = 2,
@@ -608,7 +615,7 @@ require('lazy').setup({
         -- gopls = {},
         -- pyright = {},
         rust_analyzer = {
-          enabled = false,
+          enabled = true,
         },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -734,12 +741,12 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+          {
+            'rafamadriz/friendly-snippets',
+            config = function()
+              require('luasnip.loaders.from_vscode').lazy_load()
+            end,
+          },
         },
         opts = {},
       },
@@ -786,6 +793,7 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        menu = { auto_show = false },
       },
 
       sources = {
@@ -807,7 +815,7 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = { enabled = true, trigger = { enabled = false, show_on_keyword = true } },
     },
   },
 
