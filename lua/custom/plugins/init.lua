@@ -4,6 +4,9 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    dir = '~/dev/tools/whitebox/whitebox_v0.122.0/editor_plugins/whitebox-vim/',
+  },
+  {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -23,6 +26,9 @@ return {
     ---@type Flash.Config
     opts = {
       keys = 'tnseriaoplfuwqvmcx',
+      search = {
+        multi_window = true,
+      },
       modes = {
         char = {
           jump_labels = true,

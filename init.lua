@@ -37,13 +37,20 @@ vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.guicursor = 'a:blinkon0'
 
--- border for hover floating buffer
--- vim.o.winborder = 'rounded'
+-- nushell https://github.com/nushell/integrations/blob/main/nvim/init.lua
+vim.opt.shell = '/home/xanderjakeq/.cargo/bin/nu'
+vim.opt.shelltemp = false
+vim.opt.shellredir = 'out+err> %s'
+vim.opt.shellcmdflag = '--stdin --no-newline -c'
+vim.opt.shellxescape = ''
+vim.opt.shellxquote = ''
+vim.opt.shellquote = ''
+vim.opt.shellpipe = '| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record'
 
 vim.wo.sidescrolloff = 5
 
 -- line numbers
--- vim.opt.number = true
+vim.opt.number = true
 -- vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -360,23 +367,23 @@ require('lazy').setup({
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+      vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = 'Search by [G]rep' })
+      vim.keymap.set('n', '<leader>d', builtin.diagnostics, { desc = 'Search [D]iagnostics' })
+      vim.keymap.set('n', '<leader>r', builtin.resume, { desc = 'Search [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
+      vim.keymap.set('n', '<leader>w', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      end, { desc = '[w] Fuzzily search in current buffer' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -682,16 +689,16 @@ require('lazy').setup({
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    },
+    -- keys = { -- commented out because shortcut conflicts with find files
+    --   {
+    --     '<leader>f',
+    --     function()
+    --       require('conform').format { async = true, lsp_format = 'fallback' }
+    --     end,
+    --     mode = '',
+    --     desc = '[F]ormat [B]uffer',
+    --   },
+    -- },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -793,7 +800,10 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
-        menu = { auto_show = false },
+        menu = {
+          auto_show = true,
+          border = 'single',
+        },
       },
 
       sources = {
@@ -825,7 +835,8 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'https://gitlab.com/yorickpeterse/vim-paper.git',
+    'rose-pine/neovim',
+    -- 'https://gitlab.com/yorickpeterse/vim-paper.git',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -835,10 +846,18 @@ require('lazy').setup({
       --   },
       -- }
 
+      require('rose-pine').setup {
+        styles = {
+          italic = false,
+        },
+      }
+
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'paper'
+      -- vim.cmd.colorscheme 'paper'
+      -- vim.cmd.colorscheme 'rose-pine'
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
 
