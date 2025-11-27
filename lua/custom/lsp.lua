@@ -1,4 +1,4 @@
-local lspconfig = require 'lspconfig'
+local lspconfig = vim.lsp.config
 local lsp_configs = require 'lspconfig.configs'
 
 lsp_configs.pyrefly = {
@@ -12,18 +12,17 @@ lsp_configs.pyrefly = {
   },
 }
 
-lspconfig.pyrefly.setup {}
 -- lspconfig.ctags_lsp.setup {
 --   filetyes = {
 --     'rust',
 --   },
 -- }
 
-lspconfig.html.setup {
+lspconfig.html = {
   filetyes = { 'html', 'templ', 'htmldjango' },
 }
 
-lspconfig.gdscript.setup {
+lspconfig.gdscript = {
   name = 'godot',
   cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
 }
