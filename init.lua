@@ -573,20 +573,18 @@ require('lazy').setup({
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = vim.g.have_nerd_font
-            and {
-              text = {
-                -- [vim.diagnostic.severity.ERROR] = '󰅚 ',
-                -- [vim.diagnostic.severity.WARN] = '󰀪 ',
-                -- [vim.diagnostic.severity.INFO] = '󰋽 ',
-                -- [vim.diagnostic.severity.HINT] = '󰌶 ',
-                [vim.diagnostic.severity.ERROR] = 'E ',
-                [vim.diagnostic.severity.WARN] = 'W',
-                [vim.diagnostic.severity.INFO] = 'I',
-                [vim.diagnostic.severity.HINT] = 'H ',
-              },
-            }
-          or {},
+        signs = vim.g.have_nerd_font and {
+          text = {
+            -- [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            -- [vim.diagnostic.severity.WARN] = '󰀪 ',
+            -- [vim.diagnostic.severity.INFO] = '󰋽 ',
+            -- [vim.diagnostic.severity.HINT] = '󰌶 ',
+            [vim.diagnostic.severity.ERROR] = 'E ',
+            [vim.diagnostic.severity.WARN] = 'W',
+            [vim.diagnostic.severity.INFO] = 'I',
+            [vim.diagnostic.severity.HINT] = 'H ',
+          },
+        } or {},
         -- virtual_text = {
         --   source = 'if_many',
         --   spacing = 2,
@@ -801,7 +799,7 @@ require('lazy').setup({
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
         menu = {
-          auto_show = false,
+          auto_show = true,
           border = 'single',
         },
       },
@@ -835,31 +833,32 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    -- 'rose-pine/neovim',
+    'rose-pine/neovim',
     --
-    'zenbones-theme/zenbones.nvim',
     dependencies = 'rktjmp/lush.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      -- require('zenbones').setup {
-      --   -- styles = {
-      --   --   -- comments = { italic = false }, -- Disable italics in comments
-      --   -- },
-      -- }
+      -- @diagnostic disable-next-line: missing-fields
+      require('rose-pine').setup {
+        -- styles = {
+        --   -- comments = { italic = false }, -- Disable italics in comments
+        -- },
+      }
 
-      -- require('rose-pine').setup {
-      --   styles = {
-      --     italic = false,
-      --   },
-      -- }
+      require('rose-pine').setup {
+        styles = {
+          italic = false,
+        },
+      }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'rose-pine'
-      vim.cmd.colorscheme 'forestbones'
-      vim.opt.background = 'light'
+      -- set termguicolors
+
+      vim.cmd.colorscheme 'rose-pine'
+      vim.opt.background = 'dark'
     end,
   },
 
@@ -979,6 +978,7 @@ require('lazy').setup({
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.treesitter',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
