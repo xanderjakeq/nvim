@@ -22,6 +22,12 @@ lspconfig.html = {
   filetyes = { 'html', 'templ', 'htmldjango' },
 }
 
+lspconfig.cssls = {
+  init_options = {
+    provideFormatter = false,
+  },
+}
+
 lspconfig.gdscript = {
   name = 'godot',
   cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
