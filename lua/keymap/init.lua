@@ -1,4 +1,5 @@
 require 'keymap.harpoon'
+require 'keymap.oil'
 local Remap = require 'keymap.remap'
 local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
